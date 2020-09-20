@@ -37,7 +37,7 @@ app.get('/studioGetAsyncData', function(req, res, next) {
 });
 
 // Initiate Async Task (via Studio HTTP Request Widget) controller.
-app.post('/studioInitiateAsync', async function(req, res, next) {
+app.post('/studioInitiateAsync', function(req, res, next) {
 
     // Conference friendlyName is set to the unique CallSid
     // Studio HTTP Request Widget will POST this value to Express {{trigger.call.CallSid}}
