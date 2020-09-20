@@ -6,7 +6,7 @@
 // the user into the conference, will then continue on to the "Connected Call Ended" path. The
 // following widget, getAsyncResultAfterCompletion HTTP Request Widget, will fetch the results 
 // (static JSON in our test case) from the extended async operation for incorporation into the
-// Studio Flow which till be recited by the WrapItUpReciteReturnedData Say/Play widget.
+// Studio Flow which will be recited by the WrapItUpReciteReturnedData Say/Play widget.
 
 const express = require('express');
 const twilio = require('twilio');
