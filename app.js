@@ -10,10 +10,11 @@
 
 const express = require('express');
 const twilio = require('twilio');
+const env = require('dotenv').config();
 
 // Load configuration information from system environment variables
-const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID
-const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN
+const TWILIO_ACCOUNT_SID = env.TWILIO_ACCOUNT_SID
+const TWILIO_AUTH_TOKEN = env.TWILIO_AUTH_TOKEN
 
 // Create an authenticated client to access the Twilio REST API
 const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
@@ -31,7 +32,7 @@ app.get('/studioGetAsyncData', function(req, res, next) {
     // Return an JSON response to this request, so Studio can parse it
     // https://www.twilio.com/docs/studio/widget-library/http-request
     res.set('Content-Type','application/json');
-    res.send({ name: "Winson Klein" });
+    res.send({ name: "Winston Klein" });
 
 });
 
@@ -46,7 +47,6 @@ app.post('/studioInitiateAsync', async function(req, res, next) {
 
     // Use the Conference Name to derive the unique Conference SID, needed to end the conference
     // https://www.twilio.com/docs/voice/api/conference-resource#update-a-conference-resource
-
     function getConferenceSid (conferenceName) {
         return client.conferences.list({ friendlyName: conferenceName, status: 'in-progress' })
     }
